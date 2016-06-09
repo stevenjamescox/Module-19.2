@@ -46,19 +46,26 @@ class ViewController: UIViewController {
     func nextPlayerButtonTapped(sender: CustomButton){
         sender.moveRight()
         print("Next Player Button Tapped!")
+        if let image = PlayerController.sharedController.nextPlayer() {
+        imageViewHolderView.moveInFromRight({ (readyForImage) in
+            self.playerImageView.image = image
+        })
+        }
     
     }
     
     func previousPlayerButtonTapped(sender: CustomButton){
         sender.moveLeft()
         print("Previous Player Button Tapped!")
-        
+        if let image = PlayerController.sharedController.previousPlayer() {
+            imageViewHolderView.moveInFromLeft({ (readyForImage) in
+                self.playerImageView.image = image
+            })
+        }
+    
+    
+    
     }
-    
-    
-    
-    
-    
     
 }
 

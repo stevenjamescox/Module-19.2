@@ -24,6 +24,7 @@ class CustomView: UIView {
     
     
     func moveInFromLeft(completion: (readyForImage: Bool) -> Void) {
+        setupView()
         UIView.animateWithDuration(0.2, animations: { 
             self.frame = CGRectMake(self.originalFrame.origin.x + 400, self.originalFrame.origin.y, self.originalFrame.width, self.originalFrame.height)
             }) { (_) in
@@ -38,6 +39,7 @@ class CustomView: UIView {
     
     
     func moveInFromRight(completion: (readyForImage: Bool) -> Void) {
+        setupView()
         UIView.animateWithDuration(0.2, animations: {
             self.frame = CGRectMake(self.originalFrame.origin.x - 400, self.originalFrame.origin.y, self.originalFrame.width, self.originalFrame.height)
         }) { (_) in

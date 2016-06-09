@@ -31,7 +31,8 @@ class CustomImageView: UIImageView {
         self.layer.cornerRadius = cornerRadius
         //  (self.frame.height / 2)
         self.layer.masksToBounds = true
-        self.layer.borderColor = UIColor.redColor().CGColor
+        //self.layer.borderColor = UIColor.redColor().CGColor
+        //self.layer.borderWidth = 2
         
     }
 }
