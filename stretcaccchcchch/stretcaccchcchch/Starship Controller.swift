@@ -11,6 +11,7 @@ import Foundation
 class StarshipController{
 
 static let baseURL = NSURL(string: "http://swapi.co/api/starships/12/")
+    /* yeah it's not the correct type of baseURL, but the stretch time is so limited I needed to simplify */
 
     
     static func getShip(completion: ((starships: [Starship]) -> Void )) {
