@@ -49,10 +49,12 @@ class ViewController: UIViewController {
         if let image = PlayerController.sharedController.nextPlayer() {
         imageViewHolderView.moveInFromRight({ (readyForImage) in
             self.playerImageView.image = image
+            self.playerNameLabel.text = image.accessibilityIdentifier!
             })
         } else {
             if PlayerController.sharedController.currentIndex == PlayerController.sharedController.players.count - 1 {
                 self.shakeImage(self.imageViewHolderView)
+            
             }
         }
     
@@ -64,6 +66,7 @@ class ViewController: UIViewController {
         if let image = PlayerController.sharedController.previousPlayer() {
             imageViewHolderView.moveInFromLeft({ (readyForImage) in
                 self.playerImageView.image = image
+                self.playerNameLabel.text = image.accessibilityIdentifier!
             })
         } else {
             if PlayerController.sharedController.currentIndex == 0 {
