@@ -50,13 +50,8 @@ class CustomView: UIView {
                 self.frame = self.originalFrame
                 }, completion: nil)
         }
+    
     }
-    
-    
-    
-    
-    
-    
     
 }
 

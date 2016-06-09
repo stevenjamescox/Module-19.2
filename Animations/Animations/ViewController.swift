@@ -49,7 +49,11 @@ class ViewController: UIViewController {
         if let image = PlayerController.sharedController.nextPlayer() {
         imageViewHolderView.moveInFromRight({ (readyForImage) in
             self.playerImageView.image = image
-        })
+            })
+        } else {
+            if PlayerController.sharedController.currentIndex == PlayerController.sharedController.players.count - 1 {
+                self.shakeImage(self.imageViewHolderView)
+            }
         }
     
     }
@@ -61,11 +65,28 @@ class ViewController: UIViewController {
             imageViewHolderView.moveInFromLeft({ (readyForImage) in
                 self.playerImageView.image = image
             })
+        } else {
+            if PlayerController.sharedController.currentIndex == 0 {
+            self.shakeImage(self.imageViewHolderView)
+            
+            }
         }
-    
-    
-    
     }
     
+    func shakeImage(view: UIView) {
+        self.view.bringSubviewToFront(view)
+        let animation = CAKeyframeAnimation()
+        animation.keyPath = "position.x"
+        animation.values = [view.frame.origin.x + view.frame.width / 2,
+                            view.frame.origin.x + view.frame.width / 2 - 15,
+                            view.frame.origin.x + view.frame.width / 2,
+                            view.frame.origin.x + view.frame.width / 2 + 15,
+                            view.frame.origin.x + view.frame.width / 2]
+        animation.duration = 0.1
+        animation.keyTimes = [0, 0.25, 0.5, 0.75, 1]
+        animation.repeatCount = 5
+        view.layer.addAnimation(animation, forKey: "shake")
+    }
+
 }
 
