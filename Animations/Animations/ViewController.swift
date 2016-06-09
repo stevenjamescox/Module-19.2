@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         nextPlayerButton = CustomButton(frame: CGRectMake(0, self.view.frame.height - 43, self.view.frame.width, 35))
         nextPlayerButton.backgroundColor = UIColor(red: 0.490, green: 0.992, blue: 0.749, alpha: 1.00)
         nextPlayerButton.setTitle("Next Player", forState: .Normal)
+        nextPlayerButton.addTarget(self, action: #selector(nextPlayerButtonTapped(_:)), forControlEvents: .TouchUpInside)
         self.view.addSubview(nextPlayerButton)
     }
     
@@ -38,11 +39,19 @@ class ViewController: UIViewController {
         previousPlayerButton = CustomButton(frame: CGRectMake(0, self.view.frame.height - 88, self.view.frame.width, 35))
         previousPlayerButton.backgroundColor = UIColor(red: 0.890, green: 0.492, blue: 0.349, alpha: 1.00)
         previousPlayerButton.setTitle("Previous Player", forState: .Normal)
+        previousPlayerButton.addTarget(self, action: #selector(previousPlayerButtonTapped(_:)), forControlEvents: .TouchUpInside)
         self.view.addSubview(previousPlayerButton)
     }
     
+    func nextPlayerButtonTapped(sender: CustomButton){
+        
     
+    }
     
+    func previousPlayerButtonTapped(sender: CustomButton){
+        
+        
+    }
     
     
     
