@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Card {
+class Starship {
     
     private let kName = "name"
     private let kModel = "model"
