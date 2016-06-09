@@ -48,13 +48,14 @@ class ViewController: UIViewController {
         print("Next Player Button Tapped!")
         if let image = PlayerController.sharedController.nextPlayer() {
         imageViewHolderView.moveInFromRight({ (readyForImage) in
+            if readyForImage {
             self.playerImageView.image = image
             self.playerNameLabel.text = image.accessibilityIdentifier!
+            }
             })
         } else {
             if PlayerController.sharedController.currentIndex == PlayerController.sharedController.players.count - 1 {
                 self.shakeImage(self.imageViewHolderView)
-            
             }
         }
     
@@ -65,8 +66,10 @@ class ViewController: UIViewController {
         print("Previous Player Button Tapped!")
         if let image = PlayerController.sharedController.previousPlayer() {
             imageViewHolderView.moveInFromLeft({ (readyForImage) in
+                if readyForImage {
                 self.playerImageView.image = image
                 self.playerNameLabel.text = image.accessibilityIdentifier!
+            }
             })
         } else {
             if PlayerController.sharedController.currentIndex == 0 {
@@ -75,6 +78,7 @@ class ViewController: UIViewController {
             }
         }
     }
+    
     
     func shakeImage(view: UIView) {
         self.view.bringSubviewToFront(view)
